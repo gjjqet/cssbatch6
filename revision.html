@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Box Sizing</title>
-        <style>
+  <head>
+    <title>Perspective</title>
+    <style type="text/css">
 
-            .container{
-                height: 100vh;
-                display: grid;
-                place-items: center;
-            }
+      *{
+        perspective: 600px;
+      }
 
-            .fluid{
-                display: flex;
-                background-color: green;
-                padding: 20px;
-                width: 400px;
-            }
+      body{
+        height: 100vh;
 
-          .one,.two,.three{
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            margin-right: 15px;
-          }
-        </style>
-    </head>
-    <body>
-       <div class="container">
-          <div class="fluid">
-            <div class="one"></div>
-            <div class="two"></div>
-            <div class="three"></div>
-          </div>
-       </div>
+        display: grid;
+        place-items: center;
+      }
 
-       <table>
-        <thead>
-          <tr>
-            <th>NO</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Garde</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr></tr>
-          <tr></tr>
-          <tr></tr>
-          <tr></tr>
-          <tr></tr>
-        </tbody>
-       </table>
-    </body>
+      .container img{
+        width: 300px;
+
+        transition: all 15s;
+      }
+
+      /* .container:hover{*/
+        /* transform: rotateX(-270deg); */
+        /* transform: rotateY(1turn); */
+      
+       /* .container:hover + img{
+        transform: rotateX(1turn)
+       } */
+
+      
+       .container:hover + body{
+        background-color: green;
+       }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="img/dog.webp" alt="dog">
+      <img src="img/2.webp" alt="2">
+      <img src="img/3.jpg" alt="3">
+      <img src="img/4.jpg" alt="4">
+      <img src="img/5" alt="5">
+    </div>
+
+
+    <script type="text/javascript">
+      const con=document.querySelector(".container");
+      const images=document.querySelectorAll("img")
+
+      con.addEventListener("mouseenter",()=>{
+        images.forEach((image)=>{
+           image.style.transform="rotateY(3turn)"
+        })
+      })
+    </script>
+  </body>
 </html>
+
+
+
